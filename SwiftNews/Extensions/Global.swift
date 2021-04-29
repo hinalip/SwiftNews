@@ -23,6 +23,19 @@ extension UINavigationController {
     }
 }
 
+//MARK: - String
+extension String  {
+    /**
+     This method is used to  get the width of string.
+     - Parameter font : UIFont of the string.
+     - Returns: CGFloat - width of the string
+     */
+    func getWidth(font: UIFont?) -> CGFloat {
+        let attributes = font != nil ? [NSAttributedString.Key.font: font] : [:]
+        return self.size(withAttributes: attributes as [NSAttributedString.Key : Any]).width
+    }
+}
+
 
 // MARK: - UIFont's Extension
 extension UIFont {

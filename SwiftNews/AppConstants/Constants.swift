@@ -9,7 +9,11 @@
 import UIKit
 
 class Constants: NSObject {
-
+    
+    //MARK: - Navigationbar Title
+    struct NavigationBarTitles {
+        static let Articles = "Swift News"
+    }
 }
 
 //MARK: - Device Constants

@@ -80,8 +80,14 @@ extension BaseViewController  {
         self.btnLeft = nil
         
         let fontSize: CFloat = IsDeviceIPad ? 33 : 22
+//
+//
+//        let frame = CGRect(x: 0, y: 0, width: title?.getWidth(font: UIFont.robotoBoldFont(ofSize: fontSize) ) ?? 0, height: 20.0)
+        
         let lblTitle = UILabel()
-        lblTitle.text = navigationTitle.uppercased()
+        lblTitle.textAlignment = .center
+        lblTitle.text = navigationTitle
+        lblTitle.backgroundColor = .green
         lblTitle.font = UIFont.robotoBoldFont(ofSize: fontSize)
         lblTitle.textColor = .white
         
