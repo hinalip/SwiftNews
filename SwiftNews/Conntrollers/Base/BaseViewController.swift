@@ -18,6 +18,8 @@ class BaseViewController: UIViewController {
     private var btnRight: UIButton!
     private var btnLeft: UIButton!
     
+    private let vwNoDataFound = Bundle.main.loadNibNamed(CustomViewIdentifiers.kNoDataFoundView, owner: self, options: nil)?[0] as? NoDataFoundView
+    
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +70,7 @@ extension BaseViewController  {
         self.btnLeft.frame = CGRect(x: 0, y: 0, width:hw , height: hw)
         
         if isBackButtonEnabled {
-            self.btnLeft.isHidden = true
+            self.btnLeft.isHidden = false
             self.btnLeft.setImage(#imageLiteral(resourceName: "back"), for: .normal)
             self.btnLeft.addTarget(self, action: #selector(self.popViewController), for: .touchUpInside)
         } else {
@@ -80,14 +82,13 @@ extension BaseViewController  {
         self.btnLeft = nil
         
         let fontSize: CFloat = IsDeviceIPad ? 33 : 22
-//
-//
-//        let frame = CGRect(x: 0, y: 0, width: title?.getWidth(font: UIFont.robotoBoldFont(ofSize: fontSize) ) ?? 0, height: 20.0)
+        //
+        //
+        //        let frame = CGRect(x: 0, y: 0, width: title?.getWidth(font: UIFont.robotoBoldFont(ofSize: fontSize) ) ?? 0, height: 20.0)
         
         let lblTitle = UILabel()
         lblTitle.textAlignment = .center
         lblTitle.text = navigationTitle
-        lblTitle.backgroundColor = .green
         lblTitle.font = UIFont.robotoBoldFont(ofSize: fontSize)
         lblTitle.textColor = .white
         
@@ -96,6 +97,30 @@ extension BaseViewController  {
         
         navItem.leftBarButtonItems = [barButton,barTitle]
         
+    }
+    
+    
+    /**
+     This method is used to load no data found view.
+     */
+    func loadNoDataFoundView(parentView : UIView, message : String = "",image : UIImage? = nil) {
+        vwNoDataFound?.frame = CGRect(x: 0, y: 0, width: parentView.frame.width , height: parentView.frame.height)
+        if !message.isEmpty {
+            vwNoDataFound?.lblNoDataFound.text = message
+        }
+        
+        if image != nil {
+            vwNoDataFound?.imgNoDataFound.image = image
+        }
+        parentView.addSubview(vwNoDataFound!)
+    }
+    
+    /**
+     This method is used to unload no data found view.
+     */
+    func unloadNoDataFoundView() {
+        
+        vwNoDataFound?.removeFromSuperview()
     }
     
 }

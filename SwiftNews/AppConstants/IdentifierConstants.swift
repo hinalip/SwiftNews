@@ -11,9 +11,22 @@ import Foundation
 struct VCIdentifiers {
     
     static let kArticlesViewController = "ArticlesViewController"
+    static let kArticleDetailsViewController = "ArticleDetailsViewController"
+}
+
+//MARK: - View Identifiers
+struct  CustomViewIdentifiers {
+    
+    static let kNoDataFoundView                                 = "NoDataFoundView"
 }
 
 struct StoryBoardIdentifiers {
     
     static let kNews = "News"
+}
+
+//MARK: - Observers' Idenifier
+struct ObseverStrings {
+    
+    static let kContentSize                                     = "contentSize"
 }

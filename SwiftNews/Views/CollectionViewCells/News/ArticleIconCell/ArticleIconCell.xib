@@ -21,16 +21,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kns-J0-rdZ">
                         <rect key="frame" x="0.0" y="0.0" width="142" height="108"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P94-Dl-iKG">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hjv-db-qao">
                                 <rect key="frame" x="0.0" y="0.0" width="142" height="108"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P94-Dl-iKG">
+                                        <rect key="frame" x="0.0" y="0.0" width="142" height="108"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="P94-Dl-iKG" secondAttribute="bottom" id="1Gk-2U-AdW"/>
-                            <constraint firstItem="P94-Dl-iKG" firstAttribute="leading" secondItem="kns-J0-rdZ" secondAttribute="leading" id="9GX-nS-wAB"/>
-                            <constraint firstItem="P94-Dl-iKG" firstAttribute="top" secondItem="kns-J0-rdZ" secondAttribute="top" id="doC-eg-CRo"/>
-                            <constraint firstAttribute="trailing" secondItem="P94-Dl-iKG" secondAttribute="trailing" id="wy9-V7-ZSg"/>
+                            <constraint firstAttribute="trailing" secondItem="hjv-db-qao" secondAttribute="trailing" id="6LB-PO-1VS"/>
+                            <constraint firstItem="hjv-db-qao" firstAttribute="top" secondItem="kns-J0-rdZ" secondAttribute="top" id="CCs-ap-Tbk"/>
+                            <constraint firstItem="hjv-db-qao" firstAttribute="leading" secondItem="kns-J0-rdZ" secondAttribute="leading" id="L3k-3P-AQw"/>
+                            <constraint firstAttribute="bottom" secondItem="hjv-db-qao" secondAttribute="bottom" id="fAt-wL-nla"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -45,6 +50,7 @@
             <size key="customSize" width="142" height="108"/>
             <connections>
                 <outlet property="imgVwIcon" destination="P94-Dl-iKG" id="dWj-EV-eJT"/>
+                <outlet property="vwContainer" destination="kns-J0-rdZ" id="a1b-yg-1Kf"/>
             </connections>
             <point key="canvasLocation" x="85.507246376811594" y="113.16964285714285"/>
         </collectionViewCell>

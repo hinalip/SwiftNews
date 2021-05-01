@@ -14,6 +14,38 @@ class Constants: NSObject {
     struct NavigationBarTitles {
         static let Articles = "Swift News"
     }
+    
+    //MARK: - ServerAPI
+    struct ServerURL {
+        
+        static let kGetArticles = "https://www.reddit.com/r/swift/.json"
+    }
+    
+    
+    //MARK: - API Failure messages
+    struct FailureMessage {
+        
+        static let kNoInternetConnection                    = "Please check your internet connection"
+        static let kCommanErrorMessage                      = "Something went wrong. please try again later"
+        static let kDataNotFound                            = "No Result Found"
+        static let kProviderNotAvailable                    = "Provider has not set his/her availability. Please check again later"
+        static let kInvalidImageURLString                   = "Can not convert urlstring to URL."
+    }
+    
+}
+
+
+//MARK: - Fail blocks
+typealias FailureBlock = (_ status: Bool,_ error: String, _ customError: ErrorType) -> Void
+typealias FailBlock = (_ statusCode: Int, _ errMessage: String) -> Void
+
+
+//Error enum
+enum ErrorType: String {
+    
+    case server = "Error"
+    case connection = "No connection"
+    case response = ""
 }
 
 //MARK: - Device Constants
@@ -47,3 +79,11 @@ let kDeviceName = UIDevice.current.name
 let kDeviceSystemVersion = UIDevice.current.systemVersion
 let kApplicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] ?? 0.0
 let kApplicationBuildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] ?? 0
+
+//MARK: - UIHelpeing Constants
+let appViewCornerRadius : CGFloat = IsDeviceIPad ? 9 : 6
+let appSmallViewCornerRadius: CGFloat =  IsDeviceIPad ? 6 : 4
+let appMinimumImageHeight : CGFloat = IsDeviceIPad ? 200.0 : 150.0
+let appMaximumImageHeight : CGFloat = IsDeviceIPad ? 700.0 : 500.0
+
+
