@@ -91,7 +91,7 @@ extension ArticlesViewController : UITableViewDelegate,UITableViewDataSource  {
             
             cell.lblTitle.text = article.articleTitle
             
-            if article.thumbNail.isEmpty == false && article.thumbNail.isValidUrl() {
+            if (article.thumbNail ?? "").isEmpty == false && (article.thumbNail ?? "").isValidUrl() {
                 
                 cell.imgVwThumbnail.isHidden = false
                 cell.nslcImgThumbnailHeight.constant = getImageviewHeight(inputHeight: article.thumbNailHeight)

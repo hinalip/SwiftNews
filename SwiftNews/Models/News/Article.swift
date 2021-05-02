@@ -37,10 +37,10 @@ class ChildrenData: NSObject {
 class Article: NSObject {
 
     //MARK:- Instance Variables
-    var articleTitle : String
-    var articleBodyText : String
-    var thumbNail : String
-    var thumbNailHeight : CGFloat
+    var articleTitle : String?
+    var articleBodyText : String?
+    var thumbNail : String?
+    var thumbNailHeight : CGFloat?
     var allAwardings : [AllAwarding]?
     
     init(dict : [String : Any]) {
@@ -65,7 +65,7 @@ class Article: NSObject {
 class AllAwarding : NSObject {
     
     //MARK:- Instance Variables
-    var awardIcon : String
+    var awardIcon : String?
     
     init(dict : [String:Any]) {
         

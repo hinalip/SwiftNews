@@ -99,7 +99,7 @@ extension ArticleCell : UICollectionViewDelegate, UICollectionViewDataSource,UIC
         let cell : ArticleIconCell = collectionView.dequeueReusableCell(for: indexPath)
         
         
-        if !(self.awardings[indexPath.row].awardIcon.isEmpty) && self.awardings[indexPath.row].awardIcon.isValidUrl() {
+        if !((self.awardings[indexPath.row].awardIcon ?? "").isEmpty) && (self.awardings[indexPath.row].awardIcon ?? "").isValidUrl() {
             
             cell.imgVwIcon.isHidden = false
             

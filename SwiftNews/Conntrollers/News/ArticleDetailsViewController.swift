@@ -59,7 +59,7 @@ extension ArticleDetailsViewController  {
      */
     private func decorateUI() {
         
-        self.setUpNavigationBar(controller: self, navItem: self.navigationItem, navigationTitle: self.article.articleTitle)
+        self.setUpNavigationBar(controller: self, navItem: self.navigationItem, navigationTitle: self.article.articleTitle ?? "")
         self.lblBodyText.font = UIFont.robotoRegularFont(ofSize: IsDeviceIPad ? 24 : 16)
         self.lblTitle.font = UIFont.robotoMediumFont(ofSize: IsDeviceIPad ? 27 : 18)
         
@@ -70,7 +70,7 @@ extension ArticleDetailsViewController  {
      */
     private func bindAPIDataToUI() {
         
-        if !(self.article.thumbNail.isEmpty) && self.article.thumbNail.isValidUrl() {
+        if !((self.article.thumbNail ?? "").isEmpty) && (self.article.thumbNail ?? "").isValidUrl() {
             self.imgVwThumbnail.isHidden = false
             self.imgVwThumbnail.setImageFromURL(url: self.article.thumbNail)
             self.nslcImgHeight.constant = getImageviewHeight(inputHeight: self.article.thumbNailHeight)
